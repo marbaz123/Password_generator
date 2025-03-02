@@ -1,0 +1,19 @@
+body {
+  box-sizing: border-box;
+  background-color: #2b2525;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+#root {
+  text-align: center;
+  background-color: #faebd7;
+  border-radius: 10px;
+  min-width: 50vw;
+  padding: 20px;
+}
+/*# sourceMappingURL=index.725e94f9.css.map */
