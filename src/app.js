@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react"
+import React,{useState,useEffect, useCallback} from "react"
 import ReactDom from "react-dom/client"
 
 function Main(){
@@ -7,7 +7,7 @@ function Main(){
     [isNumeric,setNumric] = useState(false);
     [isSpecialChar,setChar] = useState(false);
 
-    function Generate_password(){
+    const Generate_password = useCallback(()=>{
         let str = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
         if(isNumeric)
             str += "1234567890"
@@ -21,9 +21,11 @@ function Main(){
         }
 
         setPassword(pass);
-    }
+    },[length,isNumeric,isSpecialChar]);
 
-    useEffect(()=>{Generate_password()},[length,isNumeric,isSpecialChar])
+    useEffect(()=>{
+        Generate_password()
+    },[Generate_password])  // you can also use [length,isNumeric,isSpecialChar] in place of [Generate_password]
 
     return(
         <>
